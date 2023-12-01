@@ -8,49 +8,82 @@
 	<link href="./style.css" rel="stylesheet">
 </head>
 <body>
-	<div class="container my-5">
-		<div class="row">
-			<div class="col">
-				<div class="carousel slide" data-interval="false" data-ride="carousel" id="contentcarousel">
-					<div class="carousel-inner carousel-disablex">
-						<div class="carousel-item d-nonex active" id="intro">
-							<div class="container">
-								<div class="row">
-									<div class="col">
-										<div class="text-block">
-										<span class="eyebrow">Case study</span>
-										<h1>How easy-to-use is your interface?</h1>
-										<p>I've taken to calling this the <strong>10x UI test</strong> — it's most useful to reevaluate how effective (or frustrating) your UI is by doing the same action ten times in a row. I've provided scenarios with good and bad examples to test this theory on and thoughts on each.</p><button class="btn btn-primary" data-slide-to="next">Let's get started <i class="fas fa-arrow-right"></i></button>
-										</div>
+<div class="container mt-3">
+	<div class="row">
+		<div class="col">
+			<div class="carousel slide" data-interval="false" data-ride="carousel" id="contentcarousel">
+				<div class="carousel-inner">
+					<div class="carousel-item active" id="intro">
+						<div class="p-3">
+							<div class="row">
+								<div class="col">
+									<div class="text-block">
+										<span class="eyebrow">Eyebrow</span>
+										<h1>Intro block</h1>
+										<p>Lorem 2</p>
+									</div>
+									<div class="button-group text-center">
+										<button class="btn btn-primary mr-auto" data-slide-to="prev" disabled>Previous <i class="fas fa-arrow-left"></i></button>
+										<button class="btn btn-primary ml-auto" data-slide-to="next">Next <i class="fas fa-arrow-right"></i></button>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="carousel-item" id="page-1">
-							<div class="container">
-								<div class="row">
-									<div class="col">
-										<div class="text-block">
+					</div>
+					<div class="carousel-item" id="q1">
+						<div class="p-3">
+							<div class="row">
+								<div class="col">
+									<div class="text-block">
 										<span class="eyebrow">Scenario one</span>
-										<h2>Date pickers vs simple inputs</h2>
-										<p>Let's consider datepickers — a small flyout that shows the user selectable calendar dates.</p>
-										<p>Let's consider this example from <span class="highlight">Workday's date inputs</span> — they use the most widely used version from jqueryui. Enter the date and it will update on each successful entry.</p>
+										<h2>Ipsum</h2>
+										<p>Lorem</p>
+									</div>
+									<div class="row mb-3">
+										<div class="col-3">
+											<div class="form-check">
+												<input checked class="form-check-input" id="q1-sd" name="q1-selection" type="radio" value="q1-sd">
+												<label class="form-check-label" for="q1-sd">Strongly disagree</label>
+											</div>
 										</div>
-										<div class="collapse next-button">
-											<p>Great, let's look at an alternative.</p><button class="btn btn-primary" data-slide-to="next">Next example <i class="fas fa-arrow-right"></i></button>
+										<div class="col-3">
+											<div class="form-check">
+												<input class="form-check-input" id="q1-d" name="q1-selection" type="radio" value="q1-d">
+												<label class="form-check-label" for="q1-d">Disagree</label>
+											</div>
 										</div>
+										<div class="col-3">
+											<div class="form-check">
+												<input class="form-check-input" id="q1-a" name="q1-selection" type="radio" value="q1-a">
+												<label class="form-check-label" for="q1-a">Agree</label>
+											</div>
+										</div>
+										<div class="col-3">
+											<div class="form-check">
+												<input class="form-check-input" id="q1-sa" name="q1-selection" type="radio" value="q1-sa">
+												<label class="form-check-label" for="q1-sa">Strongly disagree</label>
+											</div>
+										</div>
+									</div>
+									<div class="button-group text-center">
+										<button class="btn btn-primary mr-auto" data-slide-to="prev">Previous <i class="fas fa-arrow-left"></i></button>
+										<button class="btn btn-primary ml-auto" data-slide-to="next">Next <i class="fas fa-arrow-right"></i></button>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="carousel-item d-nonex" id="results">
-							<div class="container">
-								<div class="row">
-									<div class="col">
-										<div class="text-block">
-											<h2>Results</h2>
-											<p>ipsum</p>
-										</div>
+					</div>
+					<div class="carousel-item" id="results">
+						<div class="p-3">
+							<div class="row">
+								<div class="col">
+									<div class="text-block">
+										<h2>Results</h2>
+										<p>ipsum</p>
+									</div>
+									<div class="button-group text-center">
+										<button class="btn btn-primary mr-auto" data-slide-to="prev">Previous <i class="fas fa-arrow-left"></i></button>
+										<button class="btn btn-primary ml-auto" data-slide-to="next" disabled>Next <i class="fas fa-arrow-right"></i></button>
 									</div>
 								</div>
 							</div>
@@ -59,14 +92,17 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col">
-				<div class="progress mt-2">
-					<div class="progress-bar" role="progressbar" style="width: 0%" id="process-bar"></div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<div class="p-3">
+				<div class="progress my-3">
+					<div class="progress-bar" id="progress-bar" role="progress-bar" style="width: 0%"></div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script> 
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js'></script> 
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.1/umd/popper.min.js'></script> 
