@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz with end summary</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css'>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container my-5">
+  <div class="row">
+    <div class="col">
+      <div id="contentcarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+        <div class="carousel-inner carousel-disablex">
+          <div class="carousel-item d-nonex active" id="intro">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <span class="eyebrow">Case study</span>
+                  <h1>How easy-to-use is your interface?</h1>
+                  <p>I've taken to calling this the <strong>10x UI test</strong> — it's most useful to reevaluate how effective (or frustrating) your UI is by doing the same action ten times in a row. I've provided scenarios with good and bad examples to test this theory on and thoughts on each.</p>
+                  <button class="btn btn-primary" data-slide-to="next">Let's get started <i class="fas fa-arrow-right"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item d-nonex" id="scenario1">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <span class="eyebrow">Scenario one</span>
+                  <h2>Date pickers vs simple inputs</h2>
+                  <p>Let's consider datepickers — a small flyout that shows the user selectable calendar dates.</p>
+                  <p>Let's consider this example from <span class="highlight">Workday's date inputs</span> — they use the most widely used version from jqueryui. Enter the date and it will update on each successful entry.</p>
+                  <div class="false-form collapse show" data-use="date">
+                    <p class="data-set">Input the date: <span>01/12/1987</span></p>
+                    <div class="form-group">
+                      <label for="datepicker">Date</label>
+                      <input type="text" class="form-control prevent-disable" id="datepicker" readonly="readonly">
+                      <small class="form-text text-muted d-none">Please format as MM/DD/YYYY</small>
+                    </div>
+                    <button class="btn btn-outline-primary submit">Submit</button> <button class="btn btn-outline-secondary" data-slide-to="next" data-reset-index>Let's skip ahead <i class="fas fa-arrow-right"></i></button>
+
+                  </div>
+                  <div class="progress my-4">
+                    <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                  </div>
+                  <div class="collapse next-button">
+                    <p>Great, let's look at an alternative.</p>
+                    <button class="btn btn-primary" data-slide-to="next">Next example <i class="fas fa-arrow-right"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item d-nonex" id="scenario1b">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <span class="eyebrow">Scenario one</span>
+                  <h2>Date pickers vs simple inputs</h2>
+                  <p>Instead of a datepicker, let's use an ordinary text input with a simplified validation. As before, enter the date and it will update on each successful entry.</p>
+                  <div class="false-form collapse show" data-use="date">
+                    <p class="data-set">Input the date: <span>01/12/1987</span></p>
+                    <div class="form-group">
+                      <label for="dateinput">Date</label>
+                      <input type="text" class="form-control" placeholder="MM/DD/YYYY" id="dateinput" required>
+                      <small class="form-text text-muted">Please format as MM/DD/YYYY</small>
+                    </div>
+                    <button class="btn btn-outline-primary submit">Submit</button> <button class="btn btn-outline-secondary" data-slide-to="next">Let's skip ahead <i class="fas fa-arrow-right"></i></button>
+
+                  </div>
+                  <div class="progress my-4">
+                    <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                  </div>
+                  <div class="collapse next-button">
+                    <p>Great, let's look at some thoughts.</p>
+                    <button class="btn btn-primary" data-slide-to="next">Thoughts on datepickers <i class="fas fa-arrow-right"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item d-nonex" id="scenario1c">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <span class="eyebrow">Scenario one</span>
+                  <h2>Date pickers vs simple inputs</h2>
+                  <p>As seen in the examples, datepickers excel at showing the user relative dates and secondary information. Great use scenarios are:</p>
+                  <ul>
+                    <li>Google Flights: showing price differences between dates (flight cost 9/21 vs 9/23)</li>
+                    <li>Workday PTO scheduling: selecting relative through dates (next Wednesday through Friday)</li>
+                    <li>Restuarant reservations: selecting day of week rather than actual dates (this Thursday, not 09/23/2021)</li>
+                  </ul>
+                  <p>Datepickers have their uses but are incredibly annoying to use when implemented wrong.</p>
+                  <div class="next-button">
+                    <button class="btn btn-primary" data-slide-to="next">Let's examine menus <i class="fas fa-arrow-right"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item d-nonex" id="scenario2">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <span class="eyebrow">Scenario two</span>
+                  <h2>Hover- vs click-opening menus</h2>
+                  <p>Let's talk about menus in general: it's 2021, don't use them. Select the navigation item to see how annoying they can be.</p>
+                  <div class="touchscreen-only">
+                    <p>Uh oh, it looks like you're using a touchscreen only device. On desktop, this experiment would show:</p>
+                    <ul>
+                      <li>hover-opening menus will cover page content</li>
+                      <li>requires exact movements to navigate</li>
+                      <li>Split the mobile and desktop experience as hover doesn't exist on mobile devices and extra steps would be required to make the experiences work</li>
+                      <li>Potentially create an unnecessary page — is the dropdown item a page itself? Does that page only consist of its children links? What value is it to relist the links if the user just saw them in the navigation?</li>
+                    </ul>
+                    <p>Unfortunately though, I'm not going to make this demo work for touchscreens.</p>
+                    <button class="btn btn-danger" data-slide-to="next">Next section <i class="fas fa-arrow-right"></i></button>
+                  </div>
+                  <p class="data-set">Select: <span>Item 1 > Subitem 2 > Subsubitem 4</span>
+                  </p>
+                  <div class="clickable false-form collapse show" data-use="drop">
+                    <nav class="navbar navbar-expand-md bg-light dropdown-hover border">
+                      <div class="navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav mr-auto">
+                          <li class="nav-item">
+                            <button class="nav-link btn w-100" data-click="home">Home</button>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <btn class="btn nav-link dropdown-toggle" data-toggle="dropdown">
+                              Body type
+                            </btn>
+                            <ul class="dropdown-menu">
+                              <li><button class="dropdown-item" data-click="clones">Clones</button></li>
+                              <li><button class="dropdown-item" data-click="mutants">Mutants</button></li>
+                              <li class="dropdown-submenu dropdown-hover">
+                                <button class="dropdown-item dropdown-toggle" data-click="action">Robots</button>
+                                <ul class="dropdown-menu">
+                                  <li><button class="dropdown-item" data-click="2legged">2-legged</button></li>
+                                  <li><button class="dropdown-item" data-click="4legged">4-legged</button></li>
+
+                                  <li class="dropdown-submenu">
+                                    <button class="dropdown-item dropdown-toggle" data-click="action">Hovering</button>
+                                    <ul class="dropdown-menu">
+                                      <li><button class="dropdown-item" data-click="jet">Jet-powered</button></li>
+                                      <li><button class="dropdown-item" data-click="anti">Anti-gravity</button></li>
+                                    </ul>
+                                  </li>
+                                  <li class="dropdown-submenu">
+                                    <button class="dropdown-item dropdown-toggle" data-click="action">Immovable</button>
+                                    <ul class="dropdown-menu">
+                                      <li><button class="dropdown-item" data-click="action">Building-sized</button></li>
+                                      <li><button class="dropdown-item" data-click="action">Planet-sized</button></li>
+                                    </ul>
+                                  </li>
+
+                                </ul>
+                              </li>
+                              <li><button class="dropdown-item" data-click="crystal">Crystal-entities</button></li>
+                              <li class="dropdown-submenu dropdown-hover">
+                                <button class="dropdown-item dropdown-toggle" data-click="action">Magical-origin</button>
+                                <ul class="dropdown-menu">
+                                  <li><button class="dropdown-item" data-click="sorcery">Sorcery</button></li>
+                                  <li><button class="dropdown-item" data-click="knowledge">Knowledge</button></li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <btn class="btn nav-link dropdown-toggle" data-toggle="dropdown">
+                              Logic system
+                            </btn>
+                            <ul class="dropdown-menu">
+                              <li><button class="dropdown-item mh-btn" data-click="chip">Chip-based</button></li>
+                              <li><button class="dropdown-item" data-click="pnuematic">Pnuematic-based</button></li>
+                              <li><button class="dropdown-item" data-click="education">Forced education</button></li>
+                              <li class="dropdown-submenu dropdown-hover">
+                                <button class="dropdown-item dropdown-toggle" data-click="action">Arcane knowledge</button>
+                                <ul class="dropdown-menu">
+                                  <li><button class="dropdown-item" data-click="heavenly">Heavenly origins</button></li>
+                                  <li><button class="dropdown-item" data-click="inherited">Inherited memory</button></li>
+                                  <li><button class="dropdown-item" data-click="demonic">Demonic origins</button></li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                        <ul class="navbar-nav ml-auto">
+                          <li class="nav-item mb-2 mb-md-0 mr-0 mr-md-2">
+                            <button class="btn btn-outline-primary w-100" data-click="login">Login</button>
+                          </li>
+                          <li class="nav-item mb-3 mb-md-0">
+                            <button class="btn btn-primary w-100" data-click="signup">Signup</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </nav>
+                    <div class="row no-gutters align-items-center">
+                      <button class="btn col-md bg-primary text-white px-4 py-3 text-center rounded-0 btn-mh" data-click="blue">Blue content</button>
+                      <button class="btn col-md bg-danger text-white px-4 py-3 text-center rounded-0 btn-mh" data-click="red">Red content</button>
+                      <button class="btn col-md btn-success text-white px-4 py-3 text-center rounded-0 btn-mh" data-click="green">Green content</button>
+                      <button class="btn col-md bg-info text-white px-4 py-3 text-center rounded-0 btn-mh" data-click="teal">Teal content</button>
+                    </div>
+                    <button class="btn btn-outline-secondary mt-4" data-slide-to="next" data-reset-index>Let's skip ahead <i class="fas fa-arrow-right"></i></button>
+                  </div>
+                  <div class="progress my-4">
+                    <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div class="collapse next-button">
+                    <p>Great, let's look at an alternative.</p>
+                    <button class="btn btn-primary" data-slide-to="next">Next example <i class="fas fa-arrow-right"></i></button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item d-nonex" id="scenario2b">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <span class="eyebrow">Scenario two</span>
+                  <h2>Hover- vs click-opening menus</h2>
+                  <div class="touchscreen-only">
+                    <p>Almost ironically, the click-opening menus provided by Bootstrap work as intended.</p>
+                  </div>
+                  <p>Now the same example, but with click-opening menus.</p>
+                  <p class="data-set">Select: <span>Item 1 > Subitem 2 > Subsubitem 4</span>
+                  </p>
+                  <div class="clickable false-form collapse show" data-use="drop">
+                    <nav class="navbar navbar-expand-md bg-light border">
+                      <div class="navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav mr-auto">
+                          <li class="nav-item">
+                            <button class="nav-link btn w-100" data-click="home">Home</button>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <btn class="btn nav-link dropdown-toggle" data-toggle="dropdown">
+                              Body type
+                            </btn>
+                            <ul class="dropdown-menu">
+                              <li><button class="dropdown-item" data-click="clones">Clones</button></li>
+                              <li><button class="dropdown-item" data-click="mutants">Mutants</button></li>
+                              <li class="dropdown-submenu">
+                                <button class="dropdown-item dropdown-toggle" data-click="action">Robots</button>
+                                <ul class="dropdown-menu">
+                                  <li><button class="dropdown-item" data-click="2legged">2-legged</button></li>
+                                  <li><button class="dropdown-item" data-click="4legged">4-legged</button></li>
+
+                                  <li class="dropdown-submenu">
+                                    <button class="dropdown-item dropdown-toggle" data-click="action">Hovering</button>
+                                    <ul class="dropdown-menu">
+                                      <li><button class="dropdown-item" data-click="jet">Jet-powered</button></li>
+                                      <li><button class="dropdown-item" data-click="anti">Anti-gravity</button></li>
+                                    </ul>
+                                  </li>
+                                  <li class="dropdown-submenu">
+                                    <button class="dropdown-item dropdown-toggle" data-click="action">Immovable</button>
+                                    <ul class="dropdown-menu">
+                                      <li><button class="dropdown-item" data-click="action">Building-sized</button></li>
+                                      <li><button class="dropdown-item" data-click="action">Planet-sized</button></li>
+                                    </ul>
+                                  </li>
+
+                                </ul>
+                              </li>
+                              <li><button class="dropdown-item" data-click="crystal">Crystal-entities</button></li>
+                              <li class="dropdown-submenu">
+                                <button class="dropdown-item dropdown-toggle" data-click="action">Magical-origin</button>
+                                <ul class="dropdown-menu">
+                                  <li><button class="dropdown-item" data-click="sorcery">Sorcery</button></li>
+                                  <li><button class="dropdown-item" data-click="knowledge">Knowledge</button></li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="nav-item dropdown">
+                            <btn class="btn nav-link dropdown-toggle" data-toggle="dropdown">
+                              Logic system
+                            </btn>
+                            <ul class="dropdown-menu">
+                              <li><button class="dropdown-item mh-btn" data-click="chip">Chip-based</button></li>
+                              <li><button class="dropdown-item" data-click="pnuematic">Pnuematic-based</button></li>
+                              <li><button class="dropdown-item" data-click="education">Forced education</button></li>
+                              <li class="dropdown-submenu">
+                                <button class="dropdown-item dropdown-toggle" data-click="action">Arcane knowledge</button>
+                                <ul class="dropdown-menu">
+                                  <li><button class="dropdown-item" data-click="heavenly">Heavenly origins</button></li>
+                                  <li><button class="dropdown-item" data-click="inherited">Inherited memory</button></li>
+                                  <li><button class="dropdown-item" data-click="demonic">Demonic origins</button></li>
+                                </ul>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                        <ul class="navbar-nav ml-auto">
+                          <li class="nav-item mb-2 mb-md-0 mr-0 mr-md-2">
+                            <button class="btn btn-outline-primary w-100" data-click="login">Login</button>
+                          </li>
+                          <li class="nav-item mb-3 mb-md-0">
+                            <button class="btn btn-primary w-100" data-click="signup">Signup</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </nav>
+                    <div class="row no-gutters align-items-center">
+                      <button class="btn col-md bg-primary text-white px-4 py-3 text-center rounded-0 btn-mh" data-click="blue">Blue content</button>
+                      <button class="btn col-md bg-danger text-white px-4 py-3 text-center rounded-0 btn-mh" data-click="red">Red content</button>
+                      <button class="btn col-md btn-success text-white px-4 py-3 text-center rounded-0 btn-mh" data-click="green">Green content</button>
+                      <button class="btn col-md bg-info text-white px-4 py-3 text-center rounded-0 btn-mh" data-click="teal">Teal content</button>
+                    </div>
+                    <button class="btn btn-outline-secondary mt-4" data-slide-to="next" data-reset-index>Let's skip ahead <i class="fas fa-arrow-right"></i></button>
+                  </div>
+                  <div class="progress my-4">
+                    <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div class="collapse next-button">
+                    <p>Great, let's look at an alternative.</p>
+                    <button class="btn btn-primary" data-slide-to="next">Next example <i class="fas fa-arrow-right"></i></button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item d-nonex" id="scenario2c">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <span class="eyebrow">Scenario two</span>
+                  <h2>Hover- vs click-opening menus</h2>
+                  <p>Hover-opening menus continue to be used across the web and prove to be frustrating in 2021. Here's a few key issues:</p>
+                  <ul>
+                    <li>Divergence from touchscreen experience: Menu behavior acts differently between a touchscreen and mouse-driven device, why not simplify and merge the experiences?</li>
+                    <li>Coding required and accessibility issues: most CSS frameworks default to click-based methods in 2021 and come with preset ARIA functions — changing to a hover-based menu is haphazard at best.</li>
+                    <li>Extra pages potentially required: Are dropdown parent items actual pages? Do their content only consist of links and descriptions of the child pages? What user needs to see a second list?</li>
+                    <li>Unexpected screen behavior: Menus opening unexpectedly are frustrating, especially when they cover content.</li>
+                  </ul>
+                  <div class="next-button">
+                    <button class="btn btn-primary" data-slide-to="next">Let's examine novel inputs <i class="fas fa-arrow-right"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item d-nonex" id="scenario3">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <span class="eyebrow">Scenario three</span>
+                  <h2>Novel inputs</h2>
+                  <p><span class="highlight">FitBit</span></p>
+                  <div class="false-form collapse show" data-use="weight">
+                    <p class="data-set">Weight: <span>100g</span></p>
+                    <div class="form-group">
+                      <label for="weightscenario3">Weight</label>
+                      <div class="row no-gutters">
+                        <div class="col">
+                          <div class="list-group text-right max-height" id="weightvalue"></div>
+                        </div>
+                        <div class="col-auto">
+                          <div class="list-group max-height" id="weightpoint"></div>
+                        </div>
+                        <div class="col-auto">
+                          <div class="list-group max-height" id="weightscale">
+                            <button class="list-group-item list-group-item-action">gram(s)</button>
+                            <button class="list-group-item list-group-item-action">kilogram(s)</button>
+                            <button class="list-group-item list-group-item-action">pound(s)</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn btn-outline-primary submit">Submit</button> <button class="btn btn-outline-secondary" data-slide-to="next" data-reset-index>Let's skip ahead <i class="fas fa-arrow-right"></i></button>
+
+                  </div>
+                  <div class="progress my-4">
+                    <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                  </div>
+                  <div class="collapse next-button">
+                    <p>Great, let's look at an alternative.</p>
+                    <button class="btn btn-primary" data-slide-to="next">Next example <i class="fas fa-arrow-right"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item d-nonex" id="scenario3b">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <span class="eyebrow">Scenario three</span>
+                  <h2>Novel inputs</h2>
+                  <p><span class="highlight">FitBit</span></p>
+                  <div class="false-form collapse show" data-use="weight">
+                    <p class="data-set">Weight: <span>100g</span></p>
+                    <div class="form-group">
+                      <label for="weightscenario3">Weight</label>
+                      <div class="input-group d-flex">
+                        <input type="text" class="form-control w-auto text-right" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 46'>
+                        <select class="custom-select w-auto flex-grow-0" id="inputGroupSelect01">
+                          <option value="g">gram(s)</option>
+                          <option value="lb">pound(s)</option>
+                          <option value="k">kilogram(s)</option>
+                        </select>
+                      </div>
+                    </div>
+                    <button class="btn btn-outline-primary submit">Submit</button> <button class="btn btn-outline-secondary" data-slide-to="next" data-reset-index>Let's skip ahead <i class="fas fa-arrow-right"></i></button>
+
+                  </div>
+                  <div class="progress my-4">
+                    <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                  </div>
+                  <div class="collapse next-button">
+                    <p>Great, let's look at an alternative.</p>
+                    <button class="btn btn-primary" data-slide-to="next">Next example <i class="fas fa-arrow-right"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item d-nonex">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <h2>Results</h2>
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.1/umd/popper.min.js'></script>
+<script  src="./script.js"></script>
+
+</body>
+</html>
