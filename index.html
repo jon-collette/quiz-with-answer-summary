@@ -8,82 +8,40 @@
 	<link href="./style.css" rel="stylesheet">
 </head>
 <body>
-<div class="container mt-3">
-	<div class="row">
-		<div class="col">
-			<div class="carousel slide" data-interval="false" data-ride="carousel" id="contentcarousel" data-wrap="false">
-				<div class="carousel-inner" id="questions-container">
-					<div class="carousel-item active" id="intro">
-						<div class="p-3">
-							<div class="row">
-								<div class="col">
-									<div class="text-block">
-										<span class="eyebrow">Eyebrow</span>
-										<h1>Intro block</h1>
-										<p>Lorem 2</p>
-									</div>
-									<div class="button-group text-center">
-										<button class="btn btn-primary mr-auto" data-slide-to="prev">Previous <i class="fas fa-arrow-left"></i></button>
-										<button class="btn btn-primary ml-auto" data-slide-to="next">Next <i class="fas fa-arrow-right"></i></button>
+	<div class="container mt-3">
+		<div class="row">
+			<div class="col">
+				<div class="carousel slide" data-interval="false" data-ride="carousel" data-wrap="false" id="contentcarousel">
+					<div class="carousel-inner" id="questions-container">
+						<div class="carousel-item active" id="intro">
+							<div class="p-3">
+								<div class="row">
+									<div class="col">
+										<div class="text-block">
+											<span class="eyebrow">Summarized responses for the quiz</span>
+											<h1>We already collected the data — see how your responses compare to our participants</h1>
+											<p>This quizzer is built to generate its questions from a JSON input. It then will output what the user selected and reveal what data said.</p>
+										</div>
+										<div class="button-group text-center">
+											<button class="btn btn-primary" data-slide-to="prev">Previous question</button> <button class="btn btn-primary" data-slide-to="next">Next question</button>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="carousel-item" id="question-sample">
-						<div class="p-3">
-							<div class="row">
-								<div class="col">
-									<div class="text-block">
-										<span class="eyebrow">Sample quesiton</span>
-										<h2>This is what it's all based on</h2>
-										<p>Lorem</p>
-									</div>
-									<div class="row mb-3">
-										<div class="col-3">
-											<div class="form-check">
-												<input checked class="form-check-input" id="q1-sd" name="q1-selection" type="radio" value="q1-sd">
-												<label class="form-check-label" for="q1-sd">Strongly disagree</label>
-											</div>
+						<div class="carousel-item" id="results">
+							<div class="p-3">
+								<div class="row">
+									<div class="col">
+										<div class="text-block">
+											<span class="eyebrow">Results</span>
+											<h2>Here's how you compared to the survey participants:</h2>
+											<p>Follow up text</p>
 										</div>
-										<div class="col-3">
-											<div class="form-check">
-												<input class="form-check-input" id="q1-d" name="q1-selection" type="radio" value="q1-d">
-												<label class="form-check-label" for="q1-d">Disagree</label>
-											</div>
+										<div id="results-block"></div>
+										<div class="button-group text-center">
+											<button class="btn btn-primary" data-slide-to="prev">Go back</button> <button class="btn btn-primary" data-slide-to="next">A CTA?</button>
 										</div>
-										<div class="col-3">
-											<div class="form-check">
-												<input class="form-check-input" id="q1-a" name="q1-selection" type="radio" value="q1-a">
-												<label class="form-check-label" for="q1-a">Agree</label>
-											</div>
-										</div>
-										<div class="col-3">
-											<div class="form-check">
-												<input class="form-check-input" id="q1-sa" name="q1-selection" type="radio" value="q1-sa">
-												<label class="form-check-label" for="q1-sa">Strongly disagree</label>
-											</div>
-										</div>
-									</div>
-									<div class="button-group text-center">
-										<button class="btn btn-primary mr-auto" data-slide-to="prev">Previous <i class="fas fa-arrow-left"></i></button>
-										<button class="btn btn-primary ml-auto" data-slide-to="next">Next <i class="fas fa-arrow-right"></i></button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="carousel-item" id="results">
-						<div class="p-3">
-							<div class="row">
-								<div class="col">
-									<div class="text-block">
-										<h2>Results</h2>
-										<p>ipsum</p>
-									</div>
-									<div class="button-group text-center">
-										<button class="btn btn-primary mr-auto" data-slide-to="prev">Previous <i class="fas fa-arrow-left"></i></button>
-										<button class="btn btn-primary ml-auto" data-slide-to="next">Next <i class="fas fa-arrow-right"></i></button>
 									</div>
 								</div>
 							</div>
@@ -92,19 +50,18 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col">
-			<div class="p-3">
-				<div class="progress my-3">
-					<div class="progress-bar" id="progress-bar" role="progress-bar" style="width: 0%"></div>
+		<div class="row">
+			<div class="col">
+				<div class="p-3">
+					<div class="progress my-3">
+						<div class="progress-bar" id="progress-bar" role="progress-bar" style="width: 0%"></div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script> 
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js'></script> 
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.1/umd/popper.min.js'></script> 
 	<script src="./script.js"></script>
 </body>
