@@ -98,7 +98,7 @@ $.each(data, function(index, item) {
 	var $buttonGroup = $("<div class='button-group text-center'></div>");
 	$buttonGroup.append("<button class='btn btn-primary' data-slide-to='prev'>Previous question</button>");
 	$buttonGroup.append(" ");
-	$buttonGroup.append("<button class='btn btn-primary' data-slide-to='next'>Next question</button>");
+	$buttonGroup.append("<button class='btn btn-primary' data-slide-to='next' disabled>Next question</button>");
 	$colContainer.append($buttonGroup);
 	// Append the entire question block to the container
 	$questionsContainer.append($questionBlock);
@@ -167,6 +167,9 @@ $(".form-check-input").on("change", function() {
 
     // Add user-selected class to the corresponding progress bar in results
     $("#result-" + questionName + " .results-bar").eq(answerIndex).addClass("user-selected");
+
+    var $currentQuestion = $(this).closest(".carousel-item");
+    $currentQuestion.find("[data-slide-to='next']").prop('disabled', false);
 });
 
 // Function to update the progress bar, snappier progress bar update when told on click where it"s going
