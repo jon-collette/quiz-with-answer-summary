@@ -56,9 +56,9 @@ $.each(data, function(index, item) {
 	$colContainer.append($answersRow);
 	// Append navigation buttons
 	var $buttonGroup = $('<div class="button-group text-center"></div>');
-	$buttonGroup.append('<button class="btn btn-primary mr-auto" data-slide-to="prev">Previous <i class="fas fa-arrow-left"></i></button>');
+	$buttonGroup.append('<button class="btn btn-primary" data-slide-to="prev">Previous question</button>');
 	$buttonGroup.append(' ');
-	$buttonGroup.append('<button class="btn btn-primary ml-auto" data-slide-to="next">Next <i class="fas fa-arrow-right"></i></button>');
+	$buttonGroup.append('<button class="btn btn-primary" data-slide-to="next">Next question</button>');
 	$colContainer.append($buttonGroup);
 	// Append the entire question block to the container
 	$questionsContainer.append($questionBlock);
@@ -73,17 +73,17 @@ $('#contentcarousel .carousel-item').each(function(index) {
 // advanced slide control
 $("*[data-slide-to]").on("click", function() {
 	var slide = $(this).data("slide-to");
+	var currentIndex = $(this).closest(".carousel").find('.carousel-item.active').index();
 	if (slide === "next") {
-		console.log("Next slide");
 		$(this).closest(".carousel").carousel("next");
+		updateProgressBar(currentIndex+1);
 	} else if (slide === "prev") {
-		console.log("Prev slide");
 		$(this).closest(".carousel").carousel("prev");
+		updateProgressBar(currentIndex-1);
 	} else if (Number.isInteger(slide) && slide < $(".carousel-item").length) {
-		console.log("Go to slide: " + slide);
-		$(this).closest(".carousel").carousel(slide - 1);
+		$(this).closest(".carousel").carousel(slide);
+		updateProgressBar(slide);
 	} else if (typeof slide === "string" && $(".carousel-item#" + slide).length > 0) {
-		console.log("Go to slide with id: " + slide);
 		slide = $(".carousel-item#" + slide).index();
 		$(this).closest(".carousel").carousel(slide);
 	} else {
@@ -91,16 +91,10 @@ $("*[data-slide-to]").on("click", function() {
 	}
 });
 
-$('#contentcarousel').on('slid.bs.carousel', function () {
-    updateProgressBar();
-});
-
-// Function to update the progress bar
-function updateProgressBar() {
+// Function to update the progress bar, snappier progress bar update when told on click where it's going
+function updateProgressBar(index) {
 	var totalSteps = $('#contentcarousel .carousel-item').length;
-	// Get the index of the active item
-	var currentStep = $('#contentcarousel .carousel-item.active').index();
 	// Calculate so step 1 is width: 0%, step -1 is width: 100%
-	var progressWidth = (currentStep / (totalSteps - 1)) * 100;
+	var progressWidth = (index / (totalSteps - 1)) * 100;
 	$('#progress-bar').css('width', progressWidth + '%');
 }
